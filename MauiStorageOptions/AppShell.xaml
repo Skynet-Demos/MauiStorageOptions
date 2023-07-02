@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiStorageOptions.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MauiStorageOptions.Views"
+    xmlns:viewModels="clr-namespace:MauiStorageOptions.ViewModels"
+    x:DataType="viewModels:AppShellViewModel"
+    Shell.FlyoutBehavior="Flyout"
+    x:Name="StorageOptionsShell">
+
+    <ShellContent
+        x:Name="LoginViewItem"
+        Title="Login"
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate views:LoginView}"
+        Route="LoginView" />
+
+    <FlyoutItem
+        x:Name="HomeViewItem"
+        FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate views:HomeView}"
+            Route="HomeView"/>
+    </FlyoutItem>
+
+    <FlyoutItem
+        FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Create"
+            ContentTemplate="{DataTemplate views:CreateTodoView}"
+            Route="CreateTodoView"/>
+    </FlyoutItem>
+    
+    <FlyoutItem
+        FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Logs"
+            ContentTemplate="{DataTemplate views:LogsView}"
+            Route="LogsView"/>
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <VerticalStackLayout>
+            <Button
+                Text="Logout"
+                Command="{Binding LogoutCommand}"/>
+        </VerticalStackLayout>
+    </Shell.FlyoutFooter>
+</Shell>

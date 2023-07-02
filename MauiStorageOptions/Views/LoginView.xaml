@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiStorageOptions.Views.LoginView"
+             xmlns:viewModels="clr-namespace:MauiStorageOptions.ViewModels"
+             x:DataType="viewModels:LoginViewModel"
+             Shell.NavBarIsVisible="False"
+             Title="Login">
+    <VerticalStackLayout
+        Padding="10"
+        VerticalOptions="CenterAndExpand">
+        
+        <Label 
+            Text="Username"/>
+
+        <Entry
+            Text="{Binding Username}"/>
+
+        <Label 
+            Text="Password"/>
+
+        <Entry
+            Text="{Binding Password}"
+            IsPassword="True"/>
+
+        <HorizontalStackLayout>
+            <CheckBox
+                IsChecked="{Binding RememberMe}"/>
+
+            <Label
+                Text="Remember Me"/>
+        </HorizontalStackLayout>
+
+        <Button
+            Text="Login"
+            Command="{Binding LoginCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>
